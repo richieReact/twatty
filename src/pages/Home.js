@@ -17,11 +17,11 @@ import { Grid, Typography, makeStyles, useTheme } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   container: {
     height: '100vh',
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: 'black',
     // flexGrow: 1,
   },
   msg: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: 'black',
     borderStyle: 'solid',
     border: '.5px',
     borderColor: theme.palette.common.lightBlack,
@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
     borderStyle: 'solid',
     borderTopStyle: 'hidden',
     borderBottomStyle: 'hidden',
+    padding: '.4em',
+    paddingLeft: '.7em',
   },
   scroll: {
     height: '100%',
@@ -121,11 +123,12 @@ export default function Home() {
           </Typography>
         </div>
       </Grid>
+
       {/* The Chat */}
       <Grid item style={{ width: '50%' }}>
         <ScrollToBottom style={{ width: '30%' }}>
-          <Grid item style={{ width: '84%', backgroundColor: theme.palette.common.black, height: '100vh' }}>
-            <Typography variant='h4' className={classes.header}>
+          <Grid item style={{ width: '50%', backgroundColor: theme.palette.common.black, height: '100vh', position: 'fixed' }}>
+            <Typography variant='h6' className={classes.header}>
               Home
             </Typography>
             <ScrollToBottom className={classes.scroll}>
@@ -140,10 +143,15 @@ export default function Home() {
           </Grid>
         </ScrollToBottom>
       </Grid>
+
       {/* Right Panel */}
       <Grid item style={{ marginLeft: 'auto', width: '25%', height: '100%' }}>
-        <Typography variant='h3'>I Love Beka</Typography>
-        <Typography variant='h3'>I Love Beka</Typography>
+        <Typography variant='h3' style={{ color: 'white' }}>
+          I Love Beka
+        </Typography>
+        <Typography style={{ color: 'white' }} variant='h3'>
+          I Love Beka
+        </Typography>
       </Grid>
     </Grid>
   )
