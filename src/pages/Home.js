@@ -23,11 +23,29 @@ const useStyles = makeStyles((theme) => ({
   msg: {
     backgroundColor: theme.palette.common.black,
     borderStyle: 'solid',
-    border: '1px',
-    borderColor: 'red',
+    border: '.5px',
+    borderColor: theme.palette.common.lightBlack,
     padding: '10px',
     textAlign: 'center',
     color: 'white',
+    borderTopStyle: 'hidden',
+    borderLeftStyle: 'hidden',
+    borderRightStyle: 'hidden',
+  },
+  header: {
+    color: 'white',
+    border: '1px',
+    borderColor: theme.palette.common.lightBlack,
+    borderStyle: 'solid',
+    borderTopStyle: 'hidden',
+    borderBottomStyle: 'hidden',
+  },
+  scroll: {
+    height: '100%',
+    overflowY: 'scroll',
+    border: '.5px',
+    borderColor: theme.palette.common.lightBlack,
+    borderStyle: 'solid',
   },
 }))
 
@@ -105,10 +123,12 @@ export default function Home() {
       </Grid>
       {/* The Chat */}
       <Grid item style={{ width: '50%' }}>
-        <ScrollToBottom style={{ width: '20%' }}>
-          <Grid item style={{ width: '70%', backgroundColor: theme.palette.common.grey, height: '90vh' }}>
-            <Typography variant='h3'>Yooo</Typography>
-            <ScrollToBottom style={{ height: '90%', overflowY: 'scroll' }}>
+        <ScrollToBottom style={{ width: '30%' }}>
+          <Grid item style={{ width: '84%', backgroundColor: theme.palette.common.black, height: '100vh' }}>
+            <Typography variant='h4' className={classes.header}>
+              Home
+            </Typography>
+            <ScrollToBottom className={classes.scroll}>
               {msg.slice(0, size).map((message, index) => {
                 return (
                   <div className={classes.msg} key={index}>
