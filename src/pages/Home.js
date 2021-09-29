@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
 import io from 'socket.io-client'
-import ScrollToBottom from 'react-scroll-to-bottom'
 
 import HouseIcon from '@mui/icons-material/House'
 import ExploreIcon from '@mui/icons-material/Explore'
@@ -11,6 +10,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark'
 import PersonIcon from '@mui/icons-material/Person'
 
 import Button from '@mui/material/Button'
+import TwatCard from '../components/TwatCard'
 
 import { Grid, Typography, makeStyles, useTheme } from '@material-ui/core'
 
@@ -71,7 +71,8 @@ export default function Home() {
         return res.json()
       })
       .then((resJSON) => {
-        setMsg(resJSON.concat())
+        const tweets = resJSON.reverse()
+        setMsg(tweets.concat())
         // console.log(msg)
       })
       .catch((err) => {
@@ -79,7 +80,7 @@ export default function Home() {
       })
   }, [])
 
-  const size = 30
+  const size = 49
   // const items = list.slice(0, size).map(i => {
   //   return <myview item={i} key={i.id} />
   // },
@@ -126,22 +127,23 @@ export default function Home() {
 
       {/* The Chat */}
       <Grid item style={{ width: '50%' }}>
-        <ScrollToBottom style={{ width: '30%' }}>
+        <div style={{ width: '30%' }}>
           <Grid item style={{ width: '50%', backgroundColor: theme.palette.common.black, height: '100vh', position: 'fixed' }}>
             <Typography variant='h6' className={classes.header}>
               Home
             </Typography>
-            <ScrollToBottom className={classes.scroll}>
+            <div className={classes.scroll}>
               {msg.slice(0, size).map((message, index) => {
                 return (
-                  <div className={classes.msg} key={index}>
-                    {message.text}
-                  </div>
+                  // <div className={classes.msg} key={index}>
+                  //   {message.text}
+                  // </div>
+                  <TwatCard key={index} ava={message.user.avatar} user='@NothingForNow' name={message.user.name} tweet={message.text} />
                 )
               })}
-            </ScrollToBottom>
+            </div>
           </Grid>
-        </ScrollToBottom>
+        </div>
       </Grid>
 
       {/* Right Panel */}

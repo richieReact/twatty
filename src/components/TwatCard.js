@@ -8,11 +8,17 @@ import { borderRadius } from '@mui/system'
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    width: '50%',
-    border: '.5px',
+    width: '100%',
     borderStyle: 'solid',
-    borderColor: theme.palette.common.blue,
     backgroundColor: 'black',
+    border: '.5px',
+    borderColor: theme.palette.common.lightBlack,
+    padding: '10px',
+    textAlign: 'center',
+    color: 'white',
+    borderTopStyle: 'hidden',
+    borderLeftStyle: 'hidden',
+    borderRightStyle: 'hidden',
   },
   pic: {
     width: '3em',
@@ -32,17 +38,16 @@ export default function TwatCard(props) {
   return (
     <Grid container className={classes.container}>
       <Grid item>
-        <img className={classes.pic} src={doggy} alt='logo' />
+        <img className={classes.pic} src={props.ava} alt='logo' />
       </Grid>
       <Grid item style={{ paddingTop: '1em' }}>
         <Typography variant='h6' style={{ color: 'white' }}>
-          Johnny_Neumonic <span style={{ color: theme.palette.common.grey }}>@JohnN</span>
+          {props.name} <span style={{ color: theme.palette.common.grey }}>{props.user}</span>
         </Typography>
       </Grid>
-      <Grid item>
+      <Grid item container>
         <Typography variant='h6' style={{ color: 'white', paddingLeft: '4em', paddingBottom: '1em', paddingRight: '1em' }}>
-          Omg the Browns are gonna be very good this year! As long as we don't have too many injuries we have a shot at making it even
-          further in the playoffs.
+          {props.tweet}
         </Typography>
       </Grid>
     </Grid>
