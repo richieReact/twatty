@@ -3,9 +3,6 @@ import React from 'react'
 import { Grid, Typography, useMediaQuery, makeStyles, useTheme } from '@material-ui/core'
 // import { makeStyles } from '@mui/styles'
 
-import doggy from '../assets/doggy.jpeg'
-import { borderRadius } from '@mui/system'
-
 const useStyles = makeStyles((theme) => ({
   container: {
     width: '100%',
@@ -32,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 export default function TwatCard(props) {
   const classes = useStyles()
   const theme = useTheme()
-  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
-  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
+  // const matchesSM = useMediaQuery(theme.breakpoints.down('sm'))
+  // const matchesXS = useMediaQuery(theme.breakpoints.down('xs'))
 
   return (
     <Grid container className={classes.container}>

@@ -9,7 +9,7 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import BookmarkIcon from '@mui/icons-material/Bookmark'
 import PersonIcon from '@mui/icons-material/Person'
 
-import Button from '@mui/material/Button'
+// import Button from '@mui/material/Button'
 import TwatCard from '../components/TwatCard'
 
 import { Grid, Typography, makeStyles, useTheme } from '@material-ui/core'
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: '100vh',
     backgroundColor: 'black',
-    // flexGrow: 1,
   },
   msg: {
     backgroundColor: 'black',
@@ -81,9 +80,6 @@ export default function Home() {
   }, [])
 
   const size = 49
-  // const items = list.slice(0, size).map(i => {
-  //   return <myview item={i} key={i.id} />
-  // },
 
   return (
     <Grid container direction='row' className={classes.container}>
